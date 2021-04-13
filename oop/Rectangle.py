@@ -1,3 +1,4 @@
+#тест
 class Rectangle:
     name = 'Rectangle'
 

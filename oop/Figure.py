@@ -1,3 +1,4 @@
+#тест
 # General class
 from oop.Rectangle import Rectangle
 from oop.Circle import Circle

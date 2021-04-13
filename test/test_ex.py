@@ -1,3 +1,4 @@
+#тест
 from oop import Figure
 
 
