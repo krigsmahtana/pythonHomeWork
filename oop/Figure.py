@@ -3,15 +3,15 @@ import math
 
 
 class Figure:
-    pass
-
+    def __init__(self, a,b,c,r,name):
+        self.name = name
+        self.a = a
+        self.b = b
+        self.c = c
+        self.r = r
 
 class Square(Figure):
     name = 'Square'
-
-    def __init__(self, a):
-        self.a = a
-
     def get_name(self):
         return self.name
 
@@ -19,7 +19,7 @@ class Square(Figure):
         s = self.a ** 2
         return s
 
-    def angles(self):
+    def angles(self=4):
         ang = 4
         return ang
 
@@ -27,14 +27,8 @@ class Square(Figure):
         d = 4 * self.a
         return d
 
-
 class Rectangle(Figure):
     name = 'Rectangle'
-
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
-
     def get_name(self):
         return self.name
 
@@ -42,7 +36,7 @@ class Rectangle(Figure):
         s = self.a * self.b
         return s
 
-    def angles(self):
+    def angles(self=4):
         ang = 4
         return ang
 
@@ -50,15 +44,8 @@ class Rectangle(Figure):
         d = (2 * self.a) + (2 * self.b)
         return d
 
-
 class Triangle(Figure):
     name = 'Triangle'
-
-    def __init__(self, a, b, c):
-        self.a = a
-        self.b = b
-        self.c = c
-
     def get_name(self):
         return self.name
 
@@ -67,7 +54,7 @@ class Triangle(Figure):
         s = math.sqrt((p * (p - self.c) * (p - self.b) * (p - self.a)))
         return s
 
-    def angles(self):
+    def angles(self=3):
         ang = 3
         return ang
 
@@ -75,13 +62,8 @@ class Triangle(Figure):
         d = self.c + self.b + self.a
         return d
 
-
 class Circle(Figure):
     name = 'Circle'
-
-    def __init__(self, r):
-        self.r = r
-
     def get_name(self):
         return self.name
 
@@ -89,7 +71,7 @@ class Circle(Figure):
         s = math.pi * (self.r ** 2)
         return s
 
-    def angles(self):
+    def angles(self=0):
         ang = 0
         return ang
 
@@ -98,12 +80,13 @@ class Circle(Figure):
         return d
 
 
-def add_area(area_one, area_two):
-    area_one = area_one
-    area_two = area_two
-
-    try:
-        sum_area = area_one + area_two
-        return sum_area
-    except Exception:
+def add_area(figure1, figure2):
+    area_one = figure1
+    area_two = figure2
+    if  (isinstance(area_one,Figure) and isinstance(area_two, Figure)):
+            sum_area = area_one.area() + area_two.area()
+            return sum_area
+    else:
         return "передан неправильный класс"
+
+
