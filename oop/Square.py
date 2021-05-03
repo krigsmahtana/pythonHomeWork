@@ -1,3 +1,4 @@
+#тест
 class Square:
     name = 'Square'
 
